@@ -1,0 +1,618 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  list-style: none;
+}
+
+body {
+  background-color: rgb(0, 0, 0);
+}
+
+.x-body {
+  height: 100vh;
+  display: flex;
+}
+/* Divide ther continers */
+.row1 {
+  width: 31vw;
+  height: 100vh;
+  color: #fff;
+  list-style: none;
+  user-select: none;
+}
+.row2 {
+  width: 32vw;
+  height: 100vh;
+  border-left: 2px solid rgba(255, 255, 255, 0.17);
+  border-right: 2px solid rgba(255, 255, 255, 0.17);
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.row3 {
+  width: 37vw;
+  height: 100vh;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  color: white;
+}
+.sidebar {
+  width: 250px;
+  padding: 1rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  left: 18rem;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  padding: 0.8rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+nav ul li:hover {
+  background: #222;
+  border-radius: 999px;
+  padding-left: 0.8rem;
+}
+
+.post-btn {
+  width: 100%;
+  padding: 1rem;
+  background: rgb(255, 255, 255);
+  border: none;
+  color: black;
+  border-radius: 999px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 1rem 0;
+}
+
+.profile-box {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.profile-box .avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.profile-box .profile-info {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+.profile-box .username {
+  color: white;
+  font-weight: bold;
+}
+
+/* Grok AI UI */
+.grok-body {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  max-height: 100vh;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(0, 0, 0);
+  padding: 1rem;
+}
+
+.chatbot-popup {
+  position: relative;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 420px;
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: rgba(0, 10, 10, 20.1) 5px 4px 12px;
+  box-shadow: 0 0 20px 1px rgba(255, 255, 255, 0.52);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  justify-content: space-between;
+  padding: 15px 22px;
+}
+
+.chat-header .header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-info .logo-text {
+  color: #fff;
+  font-size: 1.31rem;
+  font-weight: 600;
+}
+
+.chat-header #hide-btn {
+  border: none;
+  color: #fff;
+  width: 25px;
+  height: 25px;
+  font-size: 1.9rem;
+  border-radius: 50%;
+  margin-right-: -10px;
+  margin-top: -10px;
+  background: rgb(0, 0, 0);
+  fill: #fff;
+  cursor: pointer;
+}
+
+.chat-header #hide-btn:hover {
+  background: rgba(255, 255, 255, 0.23);
+}
+
+.chat-body {
+  padding: 25px 22px;
+  display: flex;
+  gap: 20px;
+  height: 460px;
+  margin-bottom: 82px;
+  overflow-y: auto;
+  flex-direction: column;
+  background: rgb(0, 0, 0);
+}
+
+.chat-body .message {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.chat-body .bot-message .bot-avatar {
+  height: 45px;
+  width: 45px;
+  padding: 6px;
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-bottom: auto;
+}
+
+.chat-body .message .message-text {
+  padding: 12px 16px;
+  max-width: 75%;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.42);
+  color: #fff;
+}
+
+.chat-body .user-message {
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.chat-body .bot-message .message-text {
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 13px 13px 13px 3px;
+}
+
+.chat-body .user-message .message-text {
+  background: rgba(255, 255, 255, 0.42);
+  border-radius: 13px 13px 3px 13px;
+}
+
+.chat-body .bot-message.thinking .message-text {
+  padding: 2px 16px;
+  background: none;
+}
+
+.chat-footer {
+  position: absolute;
+}
+
+.chat-body .bot-message .thinking-indicator {
+  display: flex;
+  gap: 4px;
+  padding-block: 15px;
+}
+
+.chat-body .bot-message .thinking-indicator .dot:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.chat-body .bot-message .thinking-indicator .dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.chat-body .bot-message .thinking-indicator .dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.loader-rotate {
+  position: relative;
+  width: 0px;
+  height: 0px;
+  margin: 3px auto;
+  animation: rotate 3s linear infinite;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background-color: rgba(255, 255, 255, 0.31);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  animation: joinAndSpread 2s ease-in-out infinite;
+}
+
+.dot1 {
+  --angle: 0deg;
+}
+.dot2 {
+  --angle: 120deg;
+}
+.dot3 {
+  --angle: 240deg;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes joinAndSpread {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(15px)
+      scale(0.6);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0px)
+      scale(0.7);
+  }
+}
+
+.chat-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  padding: 15px 22px 20px;
+}
+
+.chat-footer .chat-form {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 32px;
+  outline: 1px solidrgb(255, 255, 255);
+}
+
+.chat-form .message-input {
+  border: none;
+  outline: none;
+  height: 87px;
+  width: 100%;
+  fornt-size: 0.95rem;
+  padding: 14px 0 13px 18px;
+}
+
+.chat-form .chat-controls {
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  padding-right: 6px;
+  height: 47px;
+}
+
+.chat-form .chat-controls button {
+  margin-top: 5px;
+  height: 35px;
+  width: 35px;
+  border: none;
+  font-size: 1.15rem;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  background: none;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+
+.chat-form .chat-controls button:hover {
+  background: rgba(255, 255, 255, 0.23);
+  transition: 0.9s ease;
+}
+
+.chat-footer .message-input {
+  background: transparent;
+  resize: none;
+  color: #fff;
+}
+
+.chat-form .chat-controls #send-message {
+  display: none;
+}
+
+.chat-form .message-input:valid ~.chat-controls #send-message {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.show-logo {
+  position: fixed;
+  border: none;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.close-logo {
+  border-radius: 15%;
+  box-shadow: 0 0 20px 0.1px rgb(255, 255, 255);
+  opacity: 0.7;
+}
+
+#show-btn {
+  display: block;
+}
+
+.chatbot-popup {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+.chatbot-popup.active {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.search-container {
+  position: fixed;
+  border-radius: 9999px;
+  padding: 1.3rem 1rem;
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 25px;
+  border: 1px solid #2f3336;
+  margin: -3.50rem 1.95rem;
+  background: rgb(0, 0, 0);
+}
+
+.search-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  opacity: 0.7;
+}
+
+.search-input {
+  border: none;
+  background: transparent;
+  color: #fff;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.search-input::placeholder {
+  color: #fff;
+}
+
+.subscribe-card {
+  border: 1px solid #333;
+  margin: 4rem 1.95rem;
+  border-radius: 10px;
+  padding: 1.2rem;
+  width: 300px;
+  background: #000;
+}
+
+.subscribe-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.subscribe-card p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.subscribe-card button {
+  background: #1d9bf0;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.subscribe-card button:hover {
+  background: #1582c7;
+}
+
+.trending-card {
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin: -2.59rem 1.95rem;
+  padding: 1rem;
+  width: 310px;
+}
+
+.trending-card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.live-event {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.live-event img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  margin-right: 0.5rem;
+}
+
+.live-event .title {
+  font-weight: bold;
+}
+
+.live-event .status {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.trending-item {
+  padding: 0.5rem 0;
+  border-top: 1px solid #222;
+}
+
+.trending-item:first-of-type {
+  border-top: none;
+}
+
+.category {
+  color: #888;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.hashtag {
+  font-weight: bold;
+  margin: 0.2rem 0;
+}
+
+.posts {
+  color: #888;
+  font-size: 0.8rem;
+}
+
+.show-more {
+  color: #1da1f2;
+  text-decoration: none;
+  display: block;
+  padding-top: 0.5rem;
+}
+.show-more:hover {
+  text-decoration: underline;
+}
+
+.card {
+  background-color: #111;
+  padding: 20px;
+  border-radius: 12px;
+  overflow: auto;
+  background: none;
+  width: 305px;
+  border: 1px solid #333;
+  margin: 4rem 1.95rem;
+  float: left;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.profile img {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.profile-info {
+  flex-grow: 1;
+}
+.profile-info strong {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.profile-info span {
+  display: block;
+  font-size: 13px;
+  color: #aaa;
+}
+.follow-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.show-more {
+  color: #1d9bf0;
+  font-size: 14px;
+  cursor: pointer;
+}
+.badge {
+  width: 6px;
+  height: 6px;
+  margin-left: 4px;
+}
+
+.footer {
+  color: #777;
+  margin: -15rem 2rem;
+  font-size: 0.8rem;
+  text-align: center;
+  width: 300px;
+  clear: both;
+}
+
+.footer a {
+  color: #777;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
